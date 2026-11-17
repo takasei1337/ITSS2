@@ -3,6 +3,7 @@ import { AppLayout } from "../components/AppLayout";
 import { ProjectPage } from "../components/ProjectPage";
 import { ProjectListPage } from "../pages/S01ProjectListPage";
 import { ProjectSetupPage } from "../pages/S02ProjectSetupPage";
+import { PublicProjectDetailPage } from "../pages/PublicProjectDetailPage";
 import { RequirementsPage } from "../pages/S03RequirementsPage";
 import { TechnologyPage } from "../pages/S04TechnologyPage";
 import { PlanningPage } from "../pages/S05PlanningPage";
@@ -20,6 +21,7 @@ export default function App() {
         <Route index element={<Navigate to="/projects" replace />} />
         <Route path="projects" element={<ProjectListPage />} />
         <Route path="projects/new" element={<ProjectSetupPage />} />
+        <Route path="projects/public/:projectId" element={<PublicProjectDetailPage />} />
         <Route path="projects/:projectId/setup" element={<ProjectSetupPage />} />
         <Route path="projects/:projectId/requirements" element={<ProjectPage screen="S03">{(id) => <RequirementsPage projectId={id} />}</ProjectPage>} />
         <Route path="projects/:projectId/technology" element={<ProjectPage screen="S04">{(id) => <TechnologyPage projectId={id} />}</ProjectPage>} />

@@ -16,6 +16,8 @@ export type Task = {
   requirementId?: string;
   title: string;
   description?: string;
+  howToSteps?: string[];
+  acceptanceCriteria?: string;
   assigneeName?: string;
   status: TaskStatus;
   priority: "low" | "medium" | "high";
@@ -49,6 +51,9 @@ export type Project = {
   field: string;
   memberCount: string;
   expectedDuration: string;
+  knownSkills: string[];
+  knownSkillsNote?: string;
+  referenceProjectId?: string;
   assigneeNames: string;
   targetDate?: string;
   status: ProjectStatus;
@@ -60,6 +65,10 @@ export type Project = {
   completion: CompletionState;
   lessons?: string;
   feedback?: string;
+  isPublic?: boolean;
+  authorGroup?: string;
+  starterRoadmap?: string[];
+  outcomeSummary?: string;
 };
 
 export type AnonymousPost = {
@@ -70,11 +79,20 @@ export type AnonymousPost = {
   createdAt: string;
 };
 
+export type SimilarExperience = {
+  id: string;
+  topic: string;
+  situation: string;
+  lesson: string;
+  keywords: string[];
+};
+
 export type EmpathyResponse = {
   id: string;
   postId: string;
   content: string;
   responseType: "validation" | "encouragement" | "perspective" | "action";
+  matchedTopic?: string;
   helpful: boolean;
   reported: boolean;
 };
